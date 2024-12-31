@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Year's Surprise</title>
+    <style>
+        body {
+            margin: 0;
+            block-size: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            color: gold;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .box {
+            inline-size: 150px;
+            block-size: 150px;
+            background-color: #ff6347;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+        }
+
+        .image-container {
+            position: absolute;
+            inset-block-start: -200px;
+            inset-inline-start: 50%;
+            transform: translate(-50%, 0) scale(0.5);
+            opacity: 0;
+            transition: transform 1s ease, opacity 1s ease, top 1s ease;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .image-container img {
+            max-inline-size: 80vw;
+            max-block-size: 50vh;
+            border-radius: 15px;
+            margin-block-end: 10px;
+        }
+
+        .image-container p {
+            font-size: 1.5rem;
+            color: gold;
+        }
+
+        .image-container.show {
+            inset-block-start: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+            z-index: 3;
+        }
+
+        @media (max-inline-size: 600px) {
+            .box {
+                inline-size: 120px;
+                block-size: 120px;
+                font-size: 20px;
+            }
+
+            .image-container p {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="box" onclick="showImage()">
+        Surprise!
+    </b>
+    <div class="image-container" id="imageContainer">
+        <img src="Capture.JPG" alt="New Year's Surprise">
+        <!--<p>Happy New Year Motherfucker!!</p>-->
+    </div>
+<script>
+    function showImage() {
+        const imageContainer = document.getElementById('imageContainer');
+            imageContainer.classList.add('show');
+        }
+</script>
+</body>
+</html>
